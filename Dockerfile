@@ -1,6 +1,7 @@
 FROM pyiron/damask:2020-10-30
 
 COPY . ${HOME}/
+RUN rm ${HOME}/*.ipynb
 
 USER root
 RUN fix-permissions /home/$DOCKER_USER &&\

@@ -8,7 +8,7 @@ import numpy as np
 from pyiron import Atoms
 from pyiron.atomistics.job.atomistic import AtomisticGenericJob
 from pyiron.atomistics.job.sqs import SQSJob
-from pyiron_mpie.interactive.elastic import ElasticMatrixJob
+from elastic import ElasticMatrixJob
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -239,7 +239,7 @@ class SQSElasticConstants(FlexibleMaster):
 
         # elastic_job = self.create_job(self._job_type.ElasticMatrixJob, self._relative_name('el_job'))
         # TODO: Get the elastic job created as a proper HDF child
-        elastic_job = self._create_job(self._job_type.ElasticMatrixJob, self._elastic_ref_single_name_tail)
+        elastic_job = self._create_job(ElasticMatrixJob, self._elastic_ref_single_name_tail)
         elastic_job.input = self.ref_elastic.input
         elastic_job.ref_job = elastic_ref
         elastic_job_list = self._create_job(self._job_type.StructureListMaster, self._elastic_job_name_tail)

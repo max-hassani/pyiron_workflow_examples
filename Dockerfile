@@ -1,7 +1,12 @@
-FROM pyiron/damask:2020-10-30
+FROM pyiron/base:2020-10-30
 
+RUN rm ${HOME}/*
 COPY . ${HOME}/
-RUN rm ${HOME}/*.ipynb
+
+RUN conda env update -n base -f ${HOME}/environment.yml --prune && \
+    conda clean --all -f -y && \
+    npm cache clean --force
+
 
 USER root
 RUN fix-permissions /home/$DOCKER_USER &&\

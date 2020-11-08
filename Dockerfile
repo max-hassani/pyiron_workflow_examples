@@ -10,7 +10,7 @@ RUN conda env update -n base -f ${HOME}/environment.yml --prune && \
 
 USER root
 RUN apt-get update && \
-    apt-get install build-essential && \
+    apt-get install -y build-essential && \
     apt-get clean
 RUN fix-permissions /home/$DOCKER_USER &&\
     fix-permissions $CONDA_DIR

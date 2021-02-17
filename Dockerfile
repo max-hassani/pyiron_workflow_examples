@@ -1,4 +1,4 @@
-FROM pyiron/damask:2020-10-30
+FROM pyiron/experimental:2021-01-16
 
 COPY . ${HOME}/
 RUN rm ${HOME}/*.ipynb
